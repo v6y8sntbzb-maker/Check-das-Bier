@@ -17,7 +17,8 @@
       "hours": "Saisonale Zeiten laut Brauerei-Website",
       "website": "https://celler-bier.de/",
       "source": "https://celler-bier.de/kontakt/",
-      "positionAccuracy": "address"
+      "positionAccuracy": "address",
+      "state": "Niedersachsen"
     },
     {
       "id": "muehlengrund-wienhausen",
@@ -31,7 +32,8 @@
       "status": "Eigene Hausbrauerei und Ausschank beschrieben",
       "website": "https://www.braugasthausmuehlengrund.de/",
       "source": "https://www.celle.de/Leben/Gastronomie-Ausgehen/",
-      "positionAccuracy": "address"
+      "positionAccuracy": "address",
+      "state": "Niedersachsen"
     },
     {
       "id": "weerhuus-wathlingen",
@@ -45,7 +47,8 @@
       "status": "Status prüfen: Website kündigt neue Räume an; vor Besuch Kontakt aufnehmen",
       "website": "https://www.weerhuus.de/",
       "source": "https://www.weerhuus.de/",
-      "positionAccuracy": "address"
+      "positionAccuracy": "address",
+      "state": "Niedersachsen"
     },
     {
       "id": "boglers-uetze",
@@ -59,7 +62,8 @@
       "status": "Direktverkaufszeiten in Branchenverzeichnis gelistet; bitte vorab prüfen",
       "website": "",
       "source": "https://www.gelbeseiten.de/gsbiz/da297804-9309-4ed9-88f2-aa49fc18eaa6",
-      "positionAccuracy": "approximate"
+      "positionAccuracy": "approximate",
+      "state": "Niedersachsen"
     },
     {
       "id": "burgwedeler-brauerei",
@@ -73,7 +77,8 @@
       "status": "Bierverkauf wird angeboten; Hofladen/Event-Brauerei im Ausbau",
       "website": "https://www.burgwedeler-brauerei.de/",
       "source": "https://www.burgwedeler-brauerei.de/",
-      "positionAccuracy": "approximate"
+      "positionAccuracy": "approximate",
+      "state": "Niedersachsen"
     },
     {
       "id": "fuhrberger-brauerei",
@@ -87,7 +92,8 @@
       "status": "Öffnungszeiten auf Anfrage",
       "website": "https://www.fuhrberger-brauerei.de/",
       "source": "https://www.fuhrberger-brauerei.de/ueberuns",
-      "positionAccuracy": "approximate"
+      "positionAccuracy": "approximate",
+      "state": "Niedersachsen"
     },
     {
       "id": "herrenhaeuser-hannover",
@@ -101,7 +107,8 @@
       "status": "Fabrikverkauf laut Stadt Hannover Mo–Fr 6:30–16:00 Uhr",
       "website": "https://www.herrenhaeuser.de/",
       "source": "https://www.hannover.de/Media/02-GIS-Objekte/Organisationsdatenbank/Redaktion-Hannover.de/A-Z/F/Fabrikverkauf/Herrenh%C3%A4user-Fabrikverkauf",
-      "positionAccuracy": "address"
+      "positionAccuracy": "address",
+      "state": "Niedersachsen"
     },
     {
       "id": "haerke-peine",
@@ -115,7 +122,8 @@
       "status": "Vor Besuch Kontakt aufnehmen; aktuelle Nutzung prüfen",
       "website": "https://www.braumanufaktur-haerke.de/",
       "source": "https://www.peine-erleben.de/d1i-item-page/braumanufaktur-haerke-100041067/",
-      "positionAccuracy": "approximate"
+      "positionAccuracy": "approximate",
+      "state": "Niedersachsen"
     }
   ]
 }
