@@ -22,8 +22,8 @@ body.dark{--ink:#e5efe7;--muted:#a6b6aa;--line:#33483a;background:#101c15;color:
 <div class="eyebrow">DEIN SUCHORT</div><h2>Wo möchtest du Bier entdecken?</h2>
 <div class="inputrow"><input id="place" type="search" placeholder="Ort oder Postleitzahl eingeben …" autocomplete="off"><button id="placeBtn">Suchen</button></div>
 <div class="hint">z. B. Celle · Goslar · Bamberg</div>
-<div class="controls"><div class="control"><small>Suchradius</small><strong><span id="radiusVal">25</span> km</strong></div><button class="gps" id="gpsBtn">◎ In meiner Nähe suchen</button></div>
-<input class="range" id="radius" type="range" min="5" max="100" step="5" value="25"><div class="rangeLabels"><span>5 km</span><span>100 km</span></div>
+<div class="controls"><div class="control"><small>Suchradius</small><strong><span id="radiusVal">50</span> km</strong></div><button class="gps" id="gpsBtn">◎ In meiner Nähe suchen</button></div>
+<input class="range" id="radius" type="range" min="5" max="100" step="5" value="50"><div class="rangeLabels"><span>5 km</span><span>100 km</span></div>
 <div class="filters"><select id="kind"><option value="all">Alle Brauerei-Einträge</option><option value="pub">Ausschank markiert</option><option value="check">Ausschank prüfen</option></select><select id="state"><option value="all">Alle Bundesländer</option><option>Niedersachsen</option><option>Schleswig-Holstein</option><option>Hamburg</option><option>Bremen</option><option>Nordrhein-Westfalen</option><option>Hessen</option><option>Thüringen</option><option>Sachsen-Anhalt</option><option>Sachsen</option><option>Brandenburg</option><option>Berlin</option><option>Mecklenburg-Vorpommern</option><option>Bayern</option><option>Baden-Württemberg</option><option>Rheinland-Pfalz</option><option>Saarland</option></select></div>
 <button class="primary" id="searchBtn">⌕ Brauereien im Umkreis suchen</button>
 </section>
@@ -42,7 +42,7 @@ const $=id=>document.getElementById(id), states=['Baden-Württemberg','Bayern','
 let map,markers=L.layerGroup(),center=null,all=[],database=[],databaseReady=null,favorites=JSON.parse(localStorage.getItem('beer-favs-v2')||'[]'),showFavs=false,busy=false;
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function status(s){$('status').textContent=s}
-function initMap(){map=L.map('map',{zoomControl:true}).setView([51.1,10.45],6);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);markers.addTo(map)}
+function initMap(){map=L.map('map',{zoomControl:true}).setView([52.626111,10.080556],8);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);markers.addTo(map)}
 function stateOf(r){const s=(r.state+' '+r.address+' '+r.city).toLowerCase();return states.find(x=>s.includes(x.toLowerCase()))||''}
 function dist(a,b,c,d){const R=6371,p=Math.PI/180,x=(c-a)*p,y=(d-b)*p;return 2*R*Math.asin(Math.sqrt(Math.sin(x/2)**2+Math.cos(a*p)*Math.cos(c*p)*Math.sin(y/2)**2))}
 function render(){if(!map)return;markers.clearLayers();if(center)L.circle([center.lat,center.lon],{radius:(+$('radius').value)*1000,color:'#176044',weight:2,fill:false,dashArray:'6 6'}).addTo(markers);let rows=all.filter(r=>($('kind').value==='all'||r.kind===$('kind').value)&&($('state').value==='all'||stateOf(r)===$('state').value)&&(!showFavs||favorites.includes(r.id)));rows.sort((a,b)=>(a.distance||99999)-(b.distance||99999));$('results').innerHTML='';
@@ -65,6 +65,6 @@ if(localStorage.getItem('beer-dark')==='1'){document.body.classList.add('dark');
 $('mapBtn').onclick=()=>{$('map').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('mapBtn').classList.add('active');setTimeout(()=>map.invalidateSize(),250)};
 $('homeBtn').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});showFavs=false;render();document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('homeBtn').classList.add('active')};
 $('favsBtn').onclick=()=>{showFavs=true;render();$('results').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('favsBtn').classList.add('active')};
-initMap();loadDatabase().then(rows=>status(rows.length+' Brauereien in der lokalen Datenbank für Celle und Umgebung gespeichert.')).catch(()=>status('Lokale Datenbank konnte nicht geladen werden. Bitte App neu laden.'));if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+initMap();$('place').value='Celle';searchAt({lat:52.626111,lon:10.080556},'Celle');if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
 })();
 </script></body></html>
