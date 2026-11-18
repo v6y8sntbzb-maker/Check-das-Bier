@@ -27,7 +27,7 @@ body.dark{--ink:#e5efe7;--muted:#a6b6aa;--line:#33483a;background:#101c15;color:
 </style></head><body>
 <main class="shell">
 <header class="header"><div class="brand"><div class="logo">🍺</div><div><h1>Check das Bier</h1><p>Brauerei-Finder · Entdecke Brauereien in ganz Deutschland!</p></div></div><button class="menu" id="themeBtn" aria-label="Darstellung wechseln">☾</button></header>
-<section class="search">
+<section class="search" id="search">
 <div class="eyebrow">DEIN BIER-ATLAS</div><h2>Wo möchtest du Bier entdecken?</h2>
 <div class="inputrow"><input id="place" type="search" placeholder="Ort oder Postleitzahl eingeben …" autocomplete="off"><button id="placeBtn">Suchen</button></div>
 <div class="hint">z. B. Celle · Goslar · Bamberg</div>
@@ -71,7 +71,7 @@ $('gpsBtn').onclick=()=>{if(!navigator.geolocation){status('Standort wird von di
 $('kind').onchange=render;$('state').onchange=render;
 $('themeBtn').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('beer-dark',document.body.classList.contains('dark')?'1':'0');$('themeBtn').textContent=document.body.classList.contains('dark')?'☀':'☾'};
 if(localStorage.getItem('beer-dark')==='1'){document.body.classList.add('dark');$('themeBtn').textContent='☀'}
-$('infoBtn').onclick=()=>{$('notice').classList.toggle('hidden');document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('infoBtn').classList.add('active')};$('settingsBtn').onclick=()=>{$('search').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('settingsBtn').classList.add('active')};
+$('infoBtn').onclick=()=>{$('notice').classList.toggle('hidden');document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('infoBtn').classList.add('active')};$('settingsBtn').onclick=()=>{document.querySelector('.search').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('settingsBtn').classList.add('active')};
 $('homeBtn').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});showFavs=false;render();document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('homeBtn').classList.add('active')};
 $('favsBtn').onclick=()=>{showFavs=true;render();$('results').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('favsBtn').classList.add('active')};
 async function showGermany(){status('Lade alle Brauereien in Deutschland …');try{await loadDatabase();center=null;all=database.map(r=>({...r,distance:null}));render();if(all.length){const bounds=L.latLngBounds(all.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)).map(x=>[x.lat,x.lon]));if(bounds.isValid())map.fitBounds(bounds.pad(.06),{maxZoom:7})}status(all.length+' Brauerei-Einträge deutschlandweit. Kein Ort vorausgewählt. Gib einen Ort ein oder nutze GPS, wenn du regional suchen möchtest.')}catch(e){status('Deutschlandweite Datenbank konnte nicht geladen werden. Bitte Internetverbindung prüfen und neu laden.')}}
