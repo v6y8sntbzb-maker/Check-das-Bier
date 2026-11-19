@@ -24,6 +24,22 @@
 body.dark{--ink:#e5efe7;--muted:#a6b6aa;--line:#33483a;background:#101c15;color:#e5efe7}body.dark .search,body.dark .panel,body.dark .item,body.dark .footer{background:#1a2a20;border-color:#344a3a}body.dark .brand h1,body.dark .search h2,body.dark .maphead h2,body.dark .resulthead h2{color:#d9eee0}body.dark .inputrow input,body.dark .filters select,body.dark .control,body.dark .actions a,body.dark .actions button{background:#213529;color:#e5efe7;border-color:#405746}body.dark .status{background:#20372a;color:#c6e3cf;border-color:#385640}body.dark .notice{background:#382f1c;color:#e8d7a9;border-color:#64522b}body.dark .meta,body.dark .hint{color:#a5b4a8}
 @media(min-width:900px){.shell{max-width:1200px}.workspace{display:grid;grid-template-columns:1.3fr .9fr;gap:13px;align-items:start}.panel.mapPanel{margin-top:0}.panel.mapPanel #map{height:68vh}.panel.listPanel{margin-top:0;max-height:78vh;overflow:auto}.header,.search{max-width:780px}.header{margin-left:auto;margin-right:auto}}
 @media(max-width:420px){.shell{padding:7px 8px 90px}.brand h1{font-size:25px}.brand p{font-size:10px}.controls{grid-template-columns:1fr 1fr}.inputrow button{padding:0 13px}.filters{grid-template-columns:1fr 1fr}}
+
+/* Wide brewery hero banner, styled after the supplied reference */
+.header{height:clamp(205px,36vw,285px);display:block;position:relative;margin:0 -10px 12px;padding:0;border:0;border-radius:0;background:#35200f url("./assets/brauerei-banner.svg") center center/cover no-repeat;box-shadow:0 8px 22px #100a06aa;overflow:hidden}
+.header:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#10090422 0%,transparent 75%),linear-gradient(0deg,#1a100633,transparent 35%);z-index:0}
+.header:after{display:none}
+.header .brand{position:absolute;z-index:1;left:7%;top:34%;width:69%;display:block;transform:translateY(-5%);text-align:center}
+.header .logo{display:none}
+.header .brand h1{font-family:"Brush Script MT","Segoe Script",Georgia,serif;font-size:clamp(30px,6.2vw,51px);font-weight:800;font-style:italic;line-height:1.02;letter-spacing:-.045em;color:#fffaf0;text-shadow:0 3px 4px #170b03,0 0 12px #0009;white-space:nowrap}
+.header .brand h1 span{color:#f4b91e}
+.header .brand p{margin:7px auto 0;max-width:95%;font-family:"Brush Script MT","Segoe Script",Georgia,serif;font-size:clamp(13px,2.8vw,22px);line-height:1.08;color:#fff8e9;font-style:italic;text-shadow:0 2px 5px #140a03;letter-spacing:.01em}
+.header .menu{position:absolute;z-index:2;right:12px;top:12px;background:#24170ca8;color:#fff0bd;border:1px solid #f5d16d}
+body{background:linear-gradient(180deg,#18271920,#28190c88 36%,#1a120bd9 100%),url("./assets/brauhaus-bg.svg") center top/cover fixed, #28190c}
+.shell{background:linear-gradient(180deg,#14241622,#24160966 45%,#1b1109d9)}
+.search{background:linear-gradient(145deg,#fff9eff7,#e7d1b1f5)}
+@media(max-width:420px){.header{height:205px;margin-left:-8px;margin-right:-8px}.header .brand{left:4%;top:36%;width:73%}.header .brand h1{font-size:clamp(27px,7.4vw,34px)}.header .brand p{font-size:13px;max-width:90%}.header .menu{width:38px;height:38px;right:9px;top:9px}}
+
 </style></head><body>
 <main class="shell">
 <header class="header"><div class="brand"><div class="logo">🍺</div><div><h1>Check das <span>Bier</span></h1><p>Brauerei-Finder · Entdecke Brauereien in ganz Deutschland!</p></div></div><button class="menu" id="themeBtn" aria-label="Darstellung wechseln">☾</button></header>
