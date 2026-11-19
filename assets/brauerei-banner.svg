@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 530">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#7897a0"/><stop offset=".55" stop-color="#f0b47b"/><stop offset="1" stop-color="#46613b"/></linearGradient>
+ <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#9a5c2c"/><stop offset=".22" stop-color="#603315"/><stop offset=".75" stop-color="#351b0d"/><stop offset="1" stop-color="#75431e"/></linearGradient>
+ <linearGradient id="beer" x2="1" y2="0"><stop stop-color="#fff0a1"/><stop offset=".3" stop-color="#f6bd24"/><stop offset=".7" stop-color="#c76a09"/><stop offset="1" stop-color="#fff2b2"/></linearGradient>
+ <linearGradient id="foam" x2="0" y2="1"><stop stop-color="#fffef1"/><stop offset="1" stop-color="#d8c9a1"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="9"/></filter>
+ <filter id="drop"><feGaussianBlur in="SourceAlpha" stdDeviation="10"/><feOffset dy="12"/><feComponentTransfer><feFuncA type="linear" slope=".55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grain" width="180" height="50" patternUnits="userSpaceOnUse"><path d="M0 12Q40 2 90 14T180 12M0 35Q50 25 110 37T180 34" fill="none" stroke="#e4b16c" stroke-opacity=".22" stroke-width="4"/></pattern>
+</defs>
+<rect width="1320" height="530" fill="url(#sky)"/>
+<circle cx="1010" cy="100" r="110" fill="#ffd8a0" opacity=".45" filter="url(#blur)"/>
+<!-- village and church -->
+<g fill="#4d4534" opacity=".82"><path d="M800 360V230l75-72 75 72v130z"/><path d="M850 210V65l24-45 24 45v145z"/><path d="M885 70h-22l11-42z"/><path d="M970 360V255l66-58 66 58v105z"/><path d="M1090 360V260l60-55 60 55v100z"/></g>
+<g fill="#ffd18b" opacity=".65"><path d="M830 265h28v43h-28zm70 0h28v43h-28zm105 28h28v35h-28zm95-2h25v35h-25z"/></g>
+<!-- green trees -->
+<g fill="#244a25"><path d="M0 380Q15 190 70 145Q115 60 185 120Q245 20 310 130Q365 160 360 380Z"/><path d="M1080 390Q1085 200 1140 155Q1200 55 1260 145Q1310 110 1320 170V410Z"/></g>
+<g fill="#5b8b35"><path d="M0 280Q55 180 120 220Q155 120 230 175Q270 80 330 190Q380 250 345 365H0Z"/><path d="M1080 300Q1120 180 1180 220Q1210 130 1270 190Q1310 170 1320 230V380Z"/></g>
+<!-- wooden signboard -->
+<g filter="url(#drop)"><path d="M65 92Q110 58 190 75L830 62Q900 70 914 125L900 340Q880 390 810 385L125 398Q65 388 53 340Z" fill="url(#wood)" stroke="#d39a51" stroke-width="10"/><path d="M78 110Q120 85 190 92L830 82Q885 88 890 132L882 330Q865 365 810 365L130 376Q86 365 75 330Z" fill="none" stroke="#e7bd79" stroke-opacity=".55" stroke-width="4"/><path d="M90 145Q280 126 470 144T870 137M85 325Q280 310 480 327T875 320" fill="none" stroke="#d59a55" stroke-opacity=".35" stroke-width="7"/><rect x="80" y="70" width="8" height="300" fill="#241308" opacity=".45"/><rect x="870" y="75" width="9" height="285" fill="#241308" opacity=".4"/></g>
+<!-- beer mug -->
+<g filter="url(#drop)"><path d="M1060 100Q1060 65 1095 60H1200Q1230 65 1230 105L1212 420Q1207 460 1165 464H1125Q1082 458 1080 420Z" fill="url(#beer)" stroke="#fff0c3" stroke-width="12"/><path d="M1228 145Q1320 120 1304 250Q1294 340 1218 325" fill="none" stroke="#fff0c3" stroke-width="25"/><path d="M1070 108Q1100 70 1145 85Q1195 70 1222 108L1218 152H1070Z" fill="url(#foam)"/><path d="M1090 205Q1150 180 1205 207" fill="none" stroke="#fff8d5" stroke-width="7" opacity=".65"/><g fill="#fff5c5" opacity=".8"><circle cx="1105" cy="245" r="7"/><circle cx="1175" cy="285" r="6"/><circle cx="1135" cy="350" r="5"/></g><path d="M1110 255q40-50 82 0q-40 55-82 0" fill="none" stroke="#8c4c0d" stroke-width="7"/><path d="M1151 216v80m-34-42h68" stroke="#8c4c0d" stroke-width="5"/></g>
+<!-- hops and leaves left -->
+<g stroke="#2f642b" stroke-width="11" fill="none"><path d="M10 0Q80 80 35 180T65 390"/><path d="M100 0Q165 80 125 180"/></g>
+<g fill="#4c8b32" stroke="#a2ba55" stroke-width="3"><path d="M42 90Q-5 38 10 10Q65 25 42 90Z"/><path d="M55 160Q120 105 145 135Q115 195 55 160Z"/><path d="M20 260Q-20 210 0 180Q58 200 20 260Z"/><path d="M95 48Q65 -10 92 -35Q135 0 95 48Z"/><path d="M126 210Q190 160 210 185Q178 244 126 210Z"/></g>
+<rect y="420" width="1320" height="110" fill="url(#wood)"/><path d="M0 438Q300 420 600 440T1320 438M0 495Q300 478 600 498T1320 495" stroke="#d39a51" stroke-width="6" opacity=".45" fill="none"/>
+<rect width="1320" height="530" fill="url(#grain)" opacity=".7"/>
+</svg>
