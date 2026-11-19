@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1500">
+<defs>
+ <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#8b5425"/><stop offset=".45" stop-color="#4b2914"/><stop offset="1" stop-color="#24140b"/></linearGradient>
+ <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#fff9c7" stop-opacity=".9"/><stop offset=".25" stop-color="#f9c52b"/><stop offset=".75" stop-color="#bf6508"/><stop offset="1" stop-color="#fff0a3"/></linearGradient>
+ <radialGradient id="foam"><stop stop-color="#fffef0"/><stop offset="1" stop-color="#e9d8aa"/></radialGradient>
+ <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+ <pattern id="grain" width="150" height="42" patternUnits="userSpaceOnUse"><path d="M0 10 Q35 1 75 12 T150 9 M0 30 Q45 22 90 33 T150 29" fill="none" stroke="#d99b4b" stroke-opacity=".2" stroke-width="3"/></pattern>
+</defs>
+<rect width="900" height="1500" fill="#243c24"/>
+<rect width="900" height="1500" fill="url(#wood)" opacity=".62"/>
+<path d="M0 0H900V400Q680 365 450 405T0 390Z" fill="#19301d" opacity=".72"/>
+<!-- warm brewery village silhouette -->
+<g opacity=".5" fill="#d8b17a"><path d="M490 290V150L545 85 600 150V290Z"/><path d="M545 85V20L556 0 567 20V85Z"/><path d="M610 290V190L655 145 700 190V290Z"/><path d="M700 290V215L755 165 810 215V290Z"/></g>
+<g opacity=".26" fill="#f8d18b"><path d="M500 205h28v35h-28zm70 0h25v35h-25zm60 35h22v30h-22zm85 0h26v30h-26z"/></g>
+<!-- hops vines -->
+<g fill="none" stroke="#315f29" stroke-width="13" stroke-linecap="round"><path d="M35 0Q110 120 45 260T85 510"/><path d="M850 0Q760 120 850 280T800 510"/></g>
+<g fill="#4f862e" stroke="#9bb84a" stroke-width="3"><path d="M42 90Q-10 25 0 0Q62 15 42 90Z"/><path d="M63 165Q125 105 145 132Q120 195 63 165Z"/><path d="M35 275Q-15 225 0 195Q62 210 35 275Z"/><path d="M80 375Q145 325 162 352Q130 410 80 375Z"/><path d="M840 80Q785 20 765 48Q785 110 840 80Z"/><path d="M815 190Q755 135 735 165Q770 225 815 190Z"/><path d="M850 320Q900 265 890 235Q830 260 850 320Z"/></g>
+<g fill="#b4a43b" stroke="#e2c45b" stroke-width="2"><path d="M55 220l-16 30 21 27 23-28-12-28z"/><path d="M800 260l-15 28 20 26 22-27-12-27z"/><path d="M110 430l-16 29 20 26 23-27-12-28z"/></g>
+<!-- broad wooden sign -->
+<rect x="52" y="85" width="790" height="255" rx="25" fill="#120b07" opacity=".6" filter="url(#shadow)"/>
+<rect x="36" y="65" width="790" height="250" rx="24" fill="url(#wood)" stroke="#c28b42" stroke-width="9"/>
+<rect x="50" y="79" width="762" height="222" rx="17" fill="none" stroke="#e3b86c" stroke-opacity=".5" stroke-width="3"/>
+<g stroke="#d6a15b" stroke-opacity=".4" stroke-width="4" fill="none"><path d="M65 120Q240 100 420 120T800 118M65 270Q240 250 420 270T800 268"/></g>
+<!-- beer glass -->
+<ellipse cx="760" cy="385" rx="82" ry="22" fill="#100b06" opacity=".5"/>
+<path d="M700 140Q700 115 728 112H785Q812 115 812 140L800 360Q798 390 765 392H746Q715 388 712 360Z" fill="url(#glass)" stroke="#fff1b9" stroke-width="9"/>
+<path d="M810 175Q890 145 878 250Q870 325 802 310" fill="none" stroke="#e9dfc1" stroke-width="18"/>
+<path d="M710 150Q750 120 805 148L800 190H710Z" fill="url(#foam)"/>
+<path d="M730 235Q760 220 790 238" fill="none" stroke="#fff8d6" stroke-width="6" opacity=".7"/>
+<g fill="#fff4be" opacity=".75"><circle cx="732" cy="210" r="5"/><circle cx="775" cy="270" r="4"/><circle cx="750" cy="315" r="4"/></g>
+<!-- lower beer barrels and wheat -->
+<g opacity=".8"><path d="M0 1250H900V1500H0Z" fill="url(#wood)"/><rect x="0" y="1260" width="900" height="12" fill="#bd8844"/><rect x="0" y="1385" width="900" height="9" fill="#bd8844"/><path d="M0 1320Q220 1290 450 1320T900 1320M0 1450Q220 1420 450 1450T900 1450" fill="none" stroke="#d49b55" stroke-width="5" opacity=".35"/></g>
+<g stroke="#d6ad49" stroke-width="7" fill="none" opacity=".85"><path d="M55 1500Q70 1390 35 1300M85 1500Q105 1400 75 1335M840 1500Q820 1400 865 1300"/></g>
+<g fill="#e2bb55" opacity=".85"><path d="M35 1320l-20-24 28 6 12-30 8 32 28-2-24 22 9 28-27-17-24 16z"/><path d="M865 1320l-20-24 28 6 12-30 8 32 28-2-24 22 9 28-27-17-24 16z"/></g>
+<rect width="900" height="1500" fill="url(#grain)" opacity=".6"/>
+<rect width="900" height="1500" fill="#1b170e" opacity=".2"/>
+</svg>
