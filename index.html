@@ -171,6 +171,21 @@ body{
  .header .brand p{font-size:clamp(15px,4.2vw,20px)!important}
 }
 
+
+/* Use the supplied photographic header asset without overlay text */
+.header{
+ background-image:url("./assets/check-das-bier-banner.jpg")!important;
+ background-size:100% 100%!important;
+ background-position:center!important;
+ aspect-ratio:1320/598!important;
+ height:auto!important;
+ max-height:none!important;
+ min-height:0!important;
+}
+.header:before,.header:after{display:none!important;content:none!important}
+.header .brand{display:none!important}
+.header .menu{display:none!important}
+
 </style></head><body>
 <main class="shell">
 <header class="header"><div class="brand"><div class="logo">🍺</div><div><h1>Check das <span>Bier</span></h1><p>Brauerei-Finder</p></div></div><button class="menu" id="themeBtn" aria-label="Darstellung wechseln">☾</button></header>
