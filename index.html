@@ -105,6 +105,72 @@ body{
   .header:after{font-size:clamp(15px,4vw,18px);left:12%;width:59%;bottom:4%}
 }
 
+
+/* Final hero and rustic page treatment */
+.header{
+  aspect-ratio:1320/530!important;
+  height:auto!important;
+  max-height:none!important;
+  min-height:0!important;
+  background-image:url("./assets/brauerei-banner.svg")!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  border:0!important;
+  border-radius:0!important;
+  margin:0 -10px 14px!important;
+}
+.header:after{content:none!important;display:none!important}
+.header .brand{
+  position:absolute!important;
+  display:block!important;
+  left:5%!important;
+  top:25%!important;
+  width:65%!important;
+  transform:none!important;
+  text-align:center!important;
+}
+.header .brand h1{
+  margin:0!important;
+  font-family:"Brush Script MT","Segoe Script",cursive!important;
+  font-size:clamp(31px,8.2vw,64px)!important;
+  font-weight:800!important;
+  font-style:italic!important;
+  line-height:1.02!important;
+  letter-spacing:-.055em!important;
+  color:#fffaf0!important;
+  text-shadow:0 3px 4px #170b03,0 0 12px #000b!important;
+  white-space:nowrap!important;
+}
+.header .brand h1 span{color:#f7bd20!important}
+.header .brand p{
+  margin:3px auto 0!important;
+  font-family:"Brush Script MT","Segoe Script",cursive!important;
+  font-size:clamp(18px,4.6vw,34px)!important;
+  line-height:1!important;
+  color:#fff8e9!important;
+  font-weight:700!important;
+  font-style:italic!important;
+  text-shadow:0 2px 5px #140a03!important;
+}
+.header .menu{display:none!important}
+body{
+ background:
+ linear-gradient(180deg,#25170b33 0%,#25170b66 45%,#170e08aa 100%),
+ url("./assets/brauhaus-bg.svg") center top/100% auto repeat-y,
+ #24170c!important;
+ background-attachment:scroll!important;
+}
+.shell{background:linear-gradient(180deg,#1c120833,#1c120855 45%,#1c120888)!important}
+.search{background:linear-gradient(145deg,#fff6e2f5,#e8c994f2)!important}
+.panel{background:#fff4dc!important}
+.footer{background:linear-gradient(90deg,#1b100bfa,#59351afa,#1b100bfa)!important}
+@media(max-width:420px){
+ .header{margin-left:-8px!important;margin-right:-8px!important}
+ .header .brand{left:4%!important;top:25%!important;width:66%!important}
+ .header .brand h1{font-size:clamp(27px,7.6vw,35px)!important}
+ .header .brand p{font-size:clamp(15px,4.2vw,20px)!important}
+}
+
 </style></head><body>
 <main class="shell">
 <header class="header"><div class="brand"><div class="logo">🍺</div><div><h1>Check das <span>Bier</span></h1><p>Brauerei-Finder</p></div></div><button class="menu" id="themeBtn" aria-label="Darstellung wechseln">☾</button></header>
