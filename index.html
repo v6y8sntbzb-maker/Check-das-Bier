@@ -208,7 +208,7 @@ body{
 <section class="panel mapPanel"><div class="maphead"><div><div class="eyebrow">🍺 DEUTSCHLANDWEIT</div><h2>Brauerei-Karte</h2></div><span class="pill" id="mapCount">🍺 Alle Brauereien</span></div><div id="map"></div><div class="legend"><span><i class="dot" style="background:#25805b"></i>Ausschank markiert</span><span><i class="dot" style="background:#d39a37"></i>Ausschank prüfen</span><span>★ Favorit</span></div></section>
 <section class="panel listPanel"><div class="resulthead"><div><div class="eyebrow">ERGEBNISSE</div><h2>Gefundene Brauereien</h2></div><span class="pill" id="count">0 Treffer</span></div><div class="results" id="results"><div class="empty">Noch keine Suche durchgeführt.</div></div></section>
 </div>
-<div class="notice hidden" id="notice"><b>ℹ️ Gut zu wissen:</b> „Ausschank markiert“ bedeutet, dass OpenStreetMap einen Pub, Biergarten oder ein Restaurant mit Brauerei-Bezug verzeichnet. Bei reinen Brauerei-Einträgen bitte den Ausschank vor dem Besuch prüfen. Die Daten sind nicht amtlich vollständig. Ortssuche: OpenStreetMap/Nominatim. Kartendaten © OpenStreetMap-Mitwirkende.</div>
+<div class="notice hidden" id="notice"><b>ℹ️ Gut zu wissen:</b> Die Karte zeigt nur Einträge der Typen Mikro-, Nano-, Regional-, Großbrauerei, Brewpub oder Taproom. Bars ohne Brauanlage, Cideries, Flaschenläden, Lohnbrauereien, Planungsprojekte und geschlossene Betriebe werden ausgeschlossen. Gästeverkauf/Ausschank bitte vor dem Besuch prüfen. Die Daten sind nicht amtlich vollständig. Ortssuche: OpenStreetMap/Nominatim. Kartendaten © OpenStreetMap-Mitwirkende.</div>
 <nav class="footer"><button class="active" id="homeBtn"><span class="navicon">🏠</span>Karte</button><button id="favsBtn"><span class="navicon">♡</span>Favoriten</button><button id="infoBtn"><span class="navicon">ⓘ</span>Info</button><button id="settingsBtn"><span class="navicon">⚙</span>Einstellungen</button></nav>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -271,7 +271,7 @@ async function loadDatabase(){
   let local=[];
   try{const r=await fetch('./data/brauereien-celle.json');if(r.ok){const j=await r.json();local=Array.isArray(j.breweries)?j.breweries:[]}}catch(e){console.warn('Lokale Ergänzungen nicht geladen',e)}
   let national=[];
-  const cacheKey='check-bier-national-v2';
+  const cacheKey='check-bier-national-v3';
   try{const cached=JSON.parse(localStorage.getItem(cacheKey)||'null');if(Array.isArray(cached)&&cached.length>100)national=cached}catch(e){console.warn('Lokaler Datenbank-Cache ungültig',e)}
   if(!national.length){
    status('Lade deutschlandweite Brauereidaten …');
@@ -286,13 +286,14 @@ async function loadDatabase(){
    }));
    const successful=settled.filter(x=>x.status==='fulfilled').flatMap(x=>x.value);
    const failed=settled.filter(x=>x.status==='rejected');
-   national=successful.filter(x=>x.name&&x.latitude!==null&&x.latitude!==undefined&&x.longitude!==null&&x.longitude!==undefined&&Number.isFinite(Number(x.latitude))&&Number.isFinite(Number(x.longitude))&&Number(x.latitude)>=47&&Number(x.latitude)<=56&&Number(x.longitude)>=5&&Number(x.longitude)<=16).map(x=>({
+   national=successful.filter(x=>['micro','nano','regional','brewpub','large','taproom'].includes(String(x.brewery_type||'').toLowerCase())&&x.name&&x.latitude!==null&&x.latitude!==undefined&&x.longitude!==null&&x.longitude!==undefined&&Number.isFinite(Number(x.latitude))&&Number.isFinite(Number(x.longitude))&&Number(x.latitude)>=47&&Number(x.latitude)<=56&&Number(x.longitude)>=5&&Number(x.longitude)<=16).map(x=>({
     id:'obdb-'+x.id,name:x.name,
     address:[x.street||x.address_1,x.postal_code,x.city].filter(Boolean).join(', '),
     city:x.city||'',lat:Number(x.latitude),lon:Number(x.longitude),
-    kind:x.brewery_type==='brewpub'?'pub':'check',
-    service:({brewpub:'Brauereigasthaus laut Datenbank',micro:'Mikrobrauerei',regional:'Regionalbrauerei',large:'Großbrauerei',contract:'Lohnbrauerei',proprietor:'Inhabergeführte Brauerei',closed:'Geschlossene Brauerei laut Datenbank'})[x.brewery_type]||'Brauereibetrieb',
-    status:x.brewery_type==='closed'?'Als geschlossen gelistet; nicht anfahren':x.brewery_type==='brewpub'?'Als Brauereigasthaus typisiert; Ausschankzeiten bitte prüfen':'Gästeverkauf/Ausschank nicht bestätigt; vor Besuch Kontakt aufnehmen',
+    kind:['brewpub','taproom'].includes(String(x.brewery_type||'').toLowerCase())?'pub':'check',
+    breweryType:String(x.brewery_type||'').toLowerCase(),
+    service:({brewpub:'Brauereigasthaus mit eigener Brauanlage',taproom:'Brauerei mit Taproom',micro:'Mikrobrauerei',nano:'Nanobrauerei',regional:'Regionalbrauerei',large:'Großbrauerei'})[String(x.brewery_type||'').toLowerCase()]||'Bierbrauerei',
+    status:['brewpub','taproom'].includes(String(x.brewery_type||'').toLowerCase())?'Eigene Brauanlage laut Datenbank; Öffnungszeiten und Verkauf bitte prüfen':'Als Bierbrauerei typisiert; Gästeverkauf/Ausschank vor Besuch prüfen',
     website:x.website_url||'',source:'https://www.openbrewerydb.org/breweries/Germany',
     positionAccuracy:'address',state:x.state_province||x.state||''
    }));
