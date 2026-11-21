@@ -204,19 +204,22 @@ body{
 .brewery-pin.is-both{background:linear-gradient(145deg,#65cf7b,#16833b)!important;border:3px solid #d51e2b!important;box-shadow:0 0 0 2px #fff4c8,0 3px 7px #25150699!important}
 .popup-actions button.popup-favorite{background:linear-gradient(135deg,#ef6262,#b91520);color:#fff;border:1px solid #8e1019}.popup-actions button.popup-visited{background:linear-gradient(135deg,#55bd70,#16743a);color:#fff;border:1px solid #105b2c}.popup-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:9px;padding:8px 9px;background:#f2e4c9;color:#493018;border:1px solid #c9a66c;font-weight:700;font-size:12px}.brewery-popup{min-width:210px;color:#2c2117;font-size:13px;line-height:1.45}.brewery-popup strong{display:block;font-size:15px;margin-bottom:4px}.popup-actions{display:flex;gap:6px;margin-top:10px}.popup-actions button{border:0;border-radius:9px;padding:8px 9px;background:#1e6849;color:#fff;font-weight:700;font-size:12px}.popup-actions button+button{background:#a97825}
 .brewery-pin{width:36px!important;height:46px!important;transform:none!important;background:transparent!important;border:0!important;box-shadow:none!important;display:block!important}.brewery-pin img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 3px #25150699)}.brewery-pin.is-favorite{filter:drop-shadow(0 0 4px #e32636)}.brewery-pin.is-visited{filter:drop-shadow(0 0 4px #16833b)}.brewery-pin.is-both{filter:drop-shadow(0 0 5px #d51e2b) drop-shadow(0 0 2px #16833b)}.beer-symbol{font-size:27px;line-height:1;display:block;text-align:center}.brewery-pin .pin-beer{display:block;font-size:28px;line-height:40px;text-align:center;filter:drop-shadow(0 2px 3px #25150699)}.beer-symbol{width:32px;height:36px;object-fit:contain;display:block}.brewery-pin .beer-symbol{width:36px;height:46px;object-fit:contain}.beer{display:grid;place-items:center}\n
-/* Hopfen-Symbol auf dem großen Bierglas im Titelbild */
-.header:after{
- content:""!important;display:block!important;position:absolute!important;z-index:3!important;
- right:8.1%!important;top:36%!important;width:7.2%!important;height:19%!important;
- left:auto!important;bottom:auto!important;opacity:1!important;pointer-events:none!important;
- background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important;
- background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20140%22%3E%3Cg%20fill%3D%22%23b87518%22%20fill-opacity%3D%22.30%22%20stroke%3D%22%23704016%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M46%2036Q29%2043%2025%2063Q21%2088%2050%20111Q78%2089%2075%2063Q72%2043%2054%2036Q50%2032%2046%2036Z%22%2F%3E%3Cpath%20d%3D%22M49%2037Q35%2020%2043%208Q56%2016%2054%2034Q62%2016%2076%2014Q78%2029%2057%2039%22%2F%3E%3Cpath%20d%3D%22M48%2047Q32%2055%2032%2068Q46%2066%2050%2056Q55%2070%2069%2069Q66%2053%2052%2047Z%22%2F%3E%3Cpath%20d%3D%22M30%2074Q44%2072%2050%2085Q57%2073%2071%2077Q67%2094%2050%20101Q35%2092%2030%2074Z%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23704016%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M50%2046v57M38%2057l12%2012%2013-12M36%2078l14%2010%2015-10%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")!important;
+
+/* Direkt im Titelbild positioniertes Hopfenzeichen */
+.header{position:relative}
+.header .banner-hop{
+ position:absolute;z-index:5;left:86.1%;top:36.5%;
+ width:7%;height:19%;display:block;overflow:visible;
+ filter:drop-shadow(0 1px 1px #fff7);
+ pointer-events:none;
 }
-@media(max-width:420px){.header:after{right:8.1%!important;top:36%!important;width:7.2%!important;height:19%!important}}
+@media(max-width:420px){
+ .header .banner-hop{left:86.1%;top:36.5%;width:7%;height:19%}
+}
 
 </style></head><body>
 <main class="shell">
-<header class="header"><div class="brand"><div class="logo">🍺</div><div><h1>Check das <span>Bier</span></h1><p>Brauerei-Finder</p></div></div><button class="menu" id="themeBtn" aria-label="Darstellung wechseln">☾</button></header>
+<header class="header"><svg class="banner-hop" viewBox="0 0 100 140" aria-hidden="true"><g fill="#b87518" fill-opacity=".34" stroke="#704016" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M46 36Q29 43 25 63Q21 88 50 111Q78 89 75 63Q72 43 54 36Q50 32 46 36Z"/><path d="M49 37Q35 20 43 8Q56 16 54 34Q62 16 76 14Q78 29 57 39"/><path d="M48 47Q32 55 32 68Q46 66 50 56Q55 70 69 69Q66 53 52 47Z"/><path d="M30 74Q44 72 50 85Q57 73 71 77Q67 94 50 101Q35 92 30 74Z"/></g><g fill="none" stroke="#704016" stroke-width="3" stroke-linecap="round"><path d="M50 46v57M38 57l12 12 13-12M36 78l14 10 15-10"/></g></svg><div class="brand"><div class="logo">🍺</div><div><h1>Check das <span>Bier</span></h1><p>Brauerei-Finder</p></div></div><button class="menu" id="themeBtn" aria-label="Darstellung wechseln">☾</button></header>
 <section class="search" id="search">
 <div class="eyebrow">🍻 DEIN BIER-ATLAS</div><h2>Entdecke Brauereien in ganz Deutschland!</h2>
 <div class="inputrow"><input id="place" type="search" placeholder="Ort oder Postleitzahl eingeben …" autocomplete="off"><button id="placeBtn" aria-label="Suchen">➜</button></div>
