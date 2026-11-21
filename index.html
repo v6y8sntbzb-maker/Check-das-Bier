@@ -339,8 +339,8 @@ $('kind').onchange=()=>{render();if($('state').value!=='all'&&!center)searchStat
 $('themeBtn').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('beer-dark',document.body.classList.contains('dark')?'1':'0');$('themeBtn').textContent=document.body.classList.contains('dark')?'☀':'☾'};
 if(localStorage.getItem('beer-dark')==='1'){document.body.classList.add('dark');$('themeBtn').textContent='☀'}
 $('infoBtn').onclick=()=>{$('notice').classList.toggle('hidden');document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('infoBtn').classList.add('active')};$('settingsBtn').onclick=()=>{document.querySelector('.search').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('settingsBtn').classList.add('active')};
-$('homeBtn').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});showFavs=false;render();document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('homeBtn').classList.add('active')};
-$('favsBtn').onclick=()=>{showFavs=true;render();$('results').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('favsBtn').classList.add('active')};
+$('homeBtn').onclick=()=>{window.scrollTo({top:0,behavior:'smooth'});$('visitedPanel').classList.add('hidden');$('workspace').classList.remove('hidden');$('search').classList.remove('hidden');$('status').classList.remove('hidden');showFavs=false;render();document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('homeBtn').classList.add('active')};
+$('favsBtn').onclick=()=>{$('visitedPanel').classList.add('hidden');$('workspace').classList.remove('hidden');$('search').classList.remove('hidden');$('status').classList.remove('hidden');showFavs=true;render();$('results').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.footer button').forEach(x=>x.classList.remove('active'));$('favsBtn').classList.add('active')};
 async function showVisited(){
  showFavs=false;
  $('visitedPanel').classList.remove('hidden');
